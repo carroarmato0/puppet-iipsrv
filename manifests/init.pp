@@ -1,7 +1,5 @@
 class iipsrv {
 
-  notify {'Hello iipsrv world': }
-
   include iipsrv::package
   include iipsrv::config
   include iipsrv::service
