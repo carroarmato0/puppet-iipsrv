@@ -1,0 +1,24 @@
+ScriptAlias <%= scope.lookupvar('script_alias') %> /usr/libexec/iipsrv/iipsrv.fcgi
+
+# Set our environment variables for the IIP server
+DefaultInitEnv VERBOSITY "<%= scope.lookupvar('verbosity') %>"
+DefaultInitEnv LOGFILE "<%= scope.lookupvar('logfile') %>"
+DefaultInitEnv MAX_IMAGE_CACHE_SIZE "<%= scope.lookupvar('max_cache_size') %>"
+DefaultInitEnv JPEG_QUALITY "<%= scope.lookupvar('quality') %>"
+DefaultInitEnv MAX_CVT "<%= scope.lookupvar('max_cvt') %>"
+# Define the idle timeout as unlimited and the number of
+# processes we want
+FcgidIdleTimeout <%= scope.lookupvar('fcgid_idle_timeout') %>
+FcgidMaxProcessesPerClass <%= scope.lookupvar('fcgid_max_processes') %>
+
+<Directory /usr/libexec/iipsrv/>
+    <IfModule mod_authz_core.c>
+        # Apache 2.4
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        # Apache 2.2
+        Order allow,deny
+        Allow from All
+    </IfModule>
+</Directory>
