@@ -6,6 +6,9 @@ DefaultInitEnv LOGFILE "<%= scope.lookupvar('logfile') %>"
 DefaultInitEnv MAX_IMAGE_CACHE_SIZE "<%= scope.lookupvar('max_cache_size') %>"
 DefaultInitEnv JPEG_QUALITY "<%= scope.lookupvar('quality') %>"
 DefaultInitEnv MAX_CVT "<%= scope.lookupvar('max_cvt') %>"
+DefaultInitEnv MAX_LAYERS "<%= scope.lookupvar('max_layers') %>"
+DefaultInitEnv FILESYSTEM_PREFIX "<%= scope.lookupvar('filesystem_prefix') %>"
+
 # Define the idle timeout as unlimited and the number of
 # processes we want
 FcgidIdleTimeout <%= scope.lookupvar('fcgid_idle_timeout') %>
